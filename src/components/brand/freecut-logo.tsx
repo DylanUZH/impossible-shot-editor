@@ -44,10 +44,22 @@ export function FreeCutLogo({ variant = 'full', size = 'md', className }: FreeCu
 
   return (
     <div className={cn('flex items-center', config.gap, className)}>
-      <ScissorIcon className={cn(config.icon, 'text-primary')} />
-      <span className={cn(config.text, 'font-semibold tracking-tight text-foreground')}>
-        FreeCut
-      </span>
+      <ScissorIcon className={cn(config.icon, 'text-primary shrink-0')} />
+
+      <div className="flex flex-col">
+        <span className={cn(config.text, 'font-semibold tracking-tight text-foreground whitespace-nowrap leading-tight')}>
+          Impossible Editor
+        </span>
+
+        {size !== 'sm' && (
+          <span className={cn(
+            'font-normal text-muted-foreground leading-tight',
+            size === 'lg' ? 'text-xs' : 'text-[10px]'
+          )}>
+            powered by FreeCut
+          </span>
+        )}
+      </div>
     </div>
   )
 }
